@@ -1,6 +1,6 @@
 import random
 import requests
-print("Bienvenido a Python")
+print("Bienvenido a Python Calc")
 nombre = input("Introduzca su nombre:\t")
 if nombre == "oscar":
  print("Hola de nuevo Óscar")
