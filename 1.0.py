@@ -9,8 +9,8 @@ else :
 print("1 Calculadora")
 print("2 Juegos")
 print("3 Admin")
-print("Actualización")
-elegir = input("Elige 1, 2 o 3 \n")
+print("4 Actualización")
+elegir = input("Elige \n")
 elegir = int(elegir)
 if elegir == 1:
   def suma(a, b):
@@ -104,7 +104,7 @@ elif elegir == 4:
 
     # URL del archivo a descargar y nombre local del archivo
     url_archivo = "https://github.com/a7ddc23a-8481-41e7-b044-0db1826d8616"
-    nombre_local = "Python-calc.py"
+    nombre_local = "Python-calc-1.1.py"
 
     # Llamar a la función para descargar el archivo
     descargar_archivo(url_archivo, nombre_local)
