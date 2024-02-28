@@ -10,6 +10,7 @@ print("1 Calculadora")
 print("2 Juegos")
 print("3 Admin")
 print("4 Actualización")
+print("Para más funciones pedirlas en el github(gamerfox2000/python-calc)")
 elegir = input("Elige \n")
 elegir = int(elegir)
 if elegir == 1:
@@ -52,9 +53,63 @@ elif elegir == 2:
   #esto es un menu para los juegos
   print("Elige un juego")
   print("1 adivinanzas")
+  print("2 tres en raya")
 
   erjo = input("\n")
   erjo=int(erjo)
+  if erjo == 2:
+    def imprimir_tablero(tablero):
+     for fila in tablero:
+        print("|".join(fila))
+        print("-" * 5)
+
+    def verificar_ganador(tablero):
+    # Verificar filas y columnas
+      for i in range(3):
+        if tablero[i][0] == tablero[i][1] == tablero[i][2] != ' ':
+            return tablero[i][0]
+        if tablero[0][i] == tablero[1][i] == tablero[2][i] != ' ':
+            return tablero[0][i]
+    # Verificar diagonales
+        if tablero[0][0] == tablero[1][1] == tablero[2][2] != ' ':
+            return tablero[0][0]
+        if tablero[0][2] == tablero[1][1] == tablero[2][0] != ' ':
+           return tablero[0][2]
+        return None
+
+    def jugar_tres_en_raya():
+      tablero = [[' ' for _ in range(3)] for _ in range(3)]
+      jugador_actual = 'X'
+      jugadas_restantes = 9
+
+      print("¡Bienvenido ",nombre ,"al juego de tres en raya!")
+
+      while jugadas_restantes > 0:
+        imprimir_tablero(tablero)
+        fila = int(input(f"Turno del jugador {jugador_actual}. Ingrese el número de fila (0, 1, 2): "))
+        columna = int(input(f"Ingrese el número de columna (0, 1, 2): "))
+
+        if tablero[fila][columna] == ' ':
+            tablero[fila][columna] = jugador_actual
+            jugadas_restantes -= 1
+
+            ganador = verificar_ganador(tablero)
+            if ganador:
+                imprimir_tablero(tablero)
+                print(f"¡Felicidades! ¡El jugador {ganador} ha ganado!")
+                break
+
+            jugador_actual = 'O' if jugador_actual == 'X' else 'X'
+        else:
+            print("Esa casilla ya está ocupada. Intenta de nuevo.")
+
+      if jugadas_restantes == 0 and not ganador:
+        imprimir_tablero(tablero)
+        print("¡Es un empate!")
+
+  # Ejecutar el juego
+  jugar_tres_en_raya()
+
   if erjo == 1:
     def jugar_adivinanza():
       numero_secreto = random.randint(1, 100)
@@ -73,7 +128,7 @@ elif elegir == 2:
         elif intento > numero_secreto:
             print("Demasiado alto. Intenta de nuevo.")
         else:
-            print(f"¡Felicidades ",nombre ,"! ¡Adivinaste el número en {intentos} intentos!")
+            print(f"¡Felicidades ",nombre,"! ¡Adivinaste el número en {intentos} intentos!")
             break
       volver_a_jugar = input("¿Quieres jugar de nuevo? (s/n): ")
       if volver_a_jugar.lower() == "s":
@@ -84,7 +139,14 @@ elif elegir == 2:
     jugar_adivinanza()
 
 elif (elegir == 3) and (nombre == "oscar"):
-  print ("Admin")
+  print ("Zona para Administradores")
+  print ("Acceso permitido")
+  print ("Nada")
+  delay = 500
+  print ("LOL XD 😂")
+elif (elegir == 3) and not (nombre == "oscar"):
+  print ("Zona para Administradores")
+  print ("Acceso prohibido")
 elif elegir == 4:
   print("actualizando")
   def descargar_archivo(url, nombre_archivo):
