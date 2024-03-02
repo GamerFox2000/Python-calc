@@ -3,61 +3,76 @@ import requests
 print("Bienvenido a Python Calc")
 nombre = input("Introduzca su nombre por favor:\t")
 if nombre == "oscar":
- print("Hola de nuevo Óscar")
+  def password():
+    contraseña = input("Introduce la contraseña \n")
+    contraseña=int(contraseña)
+    if contraseña == 789632145:
+      print("Hola de nuevo Óscar")
+    else:
+      print("Intentalo de nuevo")
+      password()
+  password()
 else :
  print("Bienvenido", nombre)
-print("1 Calculadora")
-print("2 Juegos")
-print("3 Admin")
-print("4 Actualización")
-print("Para más funciones pedirlas en el github(gamerfox2000/python-calc)")
-elegir = input("Elige \n")
-elegir = int(elegir)
-if elegir == 1:
-  def suma(a, b):
+def code():
+  print("1 Calculadora")
+  print("2 Juegos")
+  print("3 Admin")
+  print("4 Actualización")
+  print("5 Apagar")
+  print("6 creditos")
+  print("Para más funciones pedirlas en el github(gamerfox2000/python-calc)")
+  elegir = input("Elige \n")
+  elegir = int(elegir)
+  if elegir == 1:
+   def suma(a, b):
     return a + b
 
-  def resta(a, b):
+   def resta(a, b):
     return a - b
 
-  def multiplicacion(a, b):
+   def multiplicacion(a, b):
     return a * b
 
-  def division(a, b):
-    if b != 0:
+   def division(a, b):
+     if b != 0:
         return a / b
-    else:
+     else:
         return "Error: No se puede dividir entre cero"
-  print("Seleccione la operación:")
-  print("1. Suma")
-  print("2. Resta")
-  print("3. Multiplicación")
-  print("4. División")
+   print("Seleccione la operación:")
+   print("1. Suma")
+   print("2. Resta")
+   print("3. Multiplicación")
+   print("4. División")
 
-  opcion = input("Ingrese la opción (1/2/3/4): ")
+   opcion = input("Ingrese la opción (1/2/3/4): ")
 
-  num1 = float(input("Ingrese el primer número: "))
-  num2 = float(input("Ingrese el segundo número: "))
-  if opcion == '1':
+   num1 = float(input("Ingrese el primer número: "))
+   num2 = float(input("Ingrese el segundo número: "))
+   if opcion == '1':
     print("La suma es:", suma(num1, num2))
-  elif opcion == '2':
+    code()
+   elif opcion == '2':
     print("La resta es:", resta(num1, num2))
-  elif opcion == '3':
+    code()
+   elif opcion == '3':
     print("La multiplicación es:", multiplicacion(num1, num2))
-  elif opcion == '4':
+    code()
+   elif opcion == '4':
     print("La división es:", division(num1, num2))
-  else:
-    print("Rerun code please")
+    code()
+   else:
+    code()
 
-elif elegir == 2:
-  #esto es un menu para los juegos
-  print("Elige un juego")
-  print("1 adivinanzas")
-  print("2 tres en raya")
+  elif elegir == 2:
+    #esto es un menu para los juegos
+   print("Elige un juego")
+   print("1 adivinanzas")
+   print("2 tres en raya")
 
-  erjo = input("\n")
-  erjo=int(erjo)
-  if erjo == 2:
+   erjo = input("1 o 2 \n")
+   erjo=int(erjo)
+   if erjo == 2:
     def imprimir_tablero(tablero):
      for fila in tablero:
         print("|".join(fila))
@@ -107,10 +122,10 @@ elif elegir == 2:
         imprimir_tablero(tablero)
         print("¡Es un empate!")
 
-  # Ejecutar el juego
-  jugar_tres_en_raya()
+    # Ejecutar el juego
+    jugar_tres_en_raya()
 
-  if erjo == 1:
+   if erjo == 1:
     def jugar_adivinanza():
       numero_secreto = random.randint(1, 100)
       intentos = 0
@@ -128,28 +143,30 @@ elif elegir == 2:
         elif intento > numero_secreto:
             print("Demasiado alto. Intenta de nuevo.")
         else:
-            print(f"¡Felicidades ",nombre,"! ¡Adivinaste el número en {intentos} intentos!")
+            print(f"¡Felicidades {nombre}! ¡Adivinaste el número en {intentos} intentos!")
             break
       volver_a_jugar = input("¿Quieres jugar de nuevo? (s/n): ")
       if volver_a_jugar.lower() == "s":
         jugar_adivinanza()
       else:
         print("¡Gracias por jugar!")
+        code()
 
     jugar_adivinanza()
 
-elif (elegir == 3) and (nombre == "oscar"):
-  print ("Zona para Administradores")
-  print ("Acceso permitido")
-  print ("Nada")
-  delay = 500
-  print ("LOL XD 😂")
-elif (elegir == 3) and not (nombre == "oscar"):
-  print ("Zona para Administradores")
-  print ("Acceso prohibido")
-elif elegir == 4:
-  print("actualizando")
-  def descargar_archivo(url, nombre_archivo):
+  elif (elegir == 3) and (nombre == "oscar"):
+   print ("Zona para Administradores")
+   print ("Acceso permitido")
+   print ("Nada")
+   print (code())
+   code()
+  elif (elegir == 3) and not (nombre == "oscar"):
+   print ("Zona para Administradores")
+   print ("Acceso prohibido")
+   code()
+  elif elegir == 4:
+   print("actualizando")
+   def descargar_archivo(url, nombre_archivo):
     try:
         # Realizar la solicitud GET a la URL para descargar el archivo
         respuesta = requests.get(url)
@@ -165,11 +182,21 @@ elif elegir == 4:
         print("Ocurrió un error:", e)
 
     # URL del archivo a descargar y nombre local del archivo
-    url_archivo = "https://raw.githubusercontent.com/gamerfox2000/python-calc/main/1.1.py"
+    url_archivo = "https://raw.githubusercontent.com/gamerfox2000/python-calc/main/1.3.py"
     nombre_local = "Python-calc-1.1.py"
 
     # Llamar a la función para descargar el archivo
     descargar_archivo(url_archivo, nombre_local)
+   code()
 
-else:
-  print ("Rerun code please")
+  elif elegir == 5:
+    print("Gracias por usar este codigo")
+
+  elif elegir == 6:
+    print("Calculadora, Juegos, Actualización, e Integración: Gamerfox2000")
+    code()
+
+  else:
+   print ("Intentalo de nuevo")
+   code()
+code()
